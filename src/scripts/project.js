@@ -6,8 +6,8 @@ let productList = [
     category: 1,
     author: "Mark Wood",
     publisher: "Atlantic Books",
-    price: "5$",
-    sold: 10,
+    price: 5,
+    stock: 10,
     status: true,
     rating: 5,
     sale: "29%",
@@ -23,8 +23,8 @@ let productList = [
     category: 1,
     author: "Takehiko Inoue",
     publisher: "Viz Media",
-    price: "4.5$",
-    sold: 9,
+    price: 4.5,
+    stock: 9,
     status: true,
     rating: 4,
     sale: "23%",
@@ -40,8 +40,8 @@ let productList = [
     category: 1,
     author: "Roger Fritz",
     publisher: "Andrew Workshop",
-    price: "6$",
-    sold: 23,
+    price: 6,
+    stock: 23,
     status: true,
     rating: 4,
     sale: "40%",
@@ -55,8 +55,8 @@ let productList = [
     category: 1,
     author: "Héctor Fracesc García Miralles",
     publisher: "Cornerstone",
-    price: "8$",
-    sold: 7,
+    price: 8,
+    stock: 7,
     status: true,
     rating: 4,
     sale: "28%",
@@ -70,8 +70,8 @@ let productList = [
     category: 1,
     author: " Stefan Baumgartner",
     publisher: "O'Reilly Media",
-    price: "4$",
-    sold: 19,
+    price: 4,
+    stock: 19,
     status: true,
     rating: 5,
     sale: "35%",
@@ -85,8 +85,8 @@ let productList = [
     category: 2,
     author: " Martin J Sherwin",
     publisher: "Vintage",
-    price: "3$",
-    sold: 16,
+    price: 3,
+    stock: 16,
     status: true,
     rating: 4,
     sale: "42%",
@@ -100,8 +100,8 @@ let productList = [
     category: 2,
     author: "Joseph Murphy ",
     publisher: "Raideki Media",
-    price: "6.5$",
-    sold: 10,
+    price: 6.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "24%",
@@ -120,8 +120,8 @@ let productList = [
     category: 2,
     author: "Tatsuki Fujimoto",
     publisher: "Viz Media, Subs. of Shogakukan Inc",
-    price: "5.5$",
-    sold: 10,
+    price: 5.5,
+    stock: 10,
     status: true,
     rating: 5,
     sale: "35%",
@@ -138,8 +138,8 @@ let productList = [
     category: 2,
     author: "Tatsuki Fujimoto",
     publisher: "Viz Media ",
-    price: "7.5$",
-    sold: 10,
+    price: 7.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "20%",
@@ -155,8 +155,8 @@ let productList = [
     category: 2,
     author: "Tatsuki Fujimoto",
     publisher: "Viz Media ",
-    price: "8.5$",
-    sold: 10,
+    price: 8.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "18%",
@@ -172,8 +172,8 @@ let productList = [
     category: 3,
     author: "Arthur Conan Doyle",
     publisher: "Fingerprint! Publishing",
-    price: "9.5$",
-    sold: 10,
+    price: 9.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "25%",
@@ -187,8 +187,8 @@ let productList = [
     category: 3,
     author: "Paulo Coelho",
     publisher: "Westland ",
-    price: "10.5$",
-    sold: 10,
+    price: 10.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "15%",
@@ -204,8 +204,8 @@ let productList = [
     category: 3,
     author: "Leo Tolstoy",
     publisher: "Wordsworth Editions",
-    price: "12.5$",
-    sold: 10,
+    price: 12.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "30%",
@@ -220,8 +220,8 @@ let productList = [
     category: 3,
     author: "Harper Lee",
     publisher: "Cornerstone",
-    price: "11.5$",
-    sold: 10,
+    price: 11.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "20%",
@@ -234,8 +234,8 @@ let productList = [
     category: 3,
     author: "F Fitzgerald Scott",
     publisher: "Namaskar Books",
-    price: "13.5$",
-    sold: 10,
+    price: 13.5,
+    stock: 10,
     status: true,
     rating: 4,
     sale: "40%",
@@ -329,7 +329,7 @@ for (let product in bestSellerList) {
         <img src="${bestSellerList[product].image[0]}" alt="">
         <h4>${bestSellerList[product].name}</h4>
         <p>
-        ${bestSellerList[product].price}
+        ${bestSellerList[product].price}$
         </p>
         <a href="product-detail.html?id=${bestSellerList[product].id}">View</a>
     </div>
@@ -344,7 +344,7 @@ for (let product in newArrivalList) {
             <img src="${newArrivalList[product].image[0]}" alt="">
             <h4>${newArrivalList[product].name}</h4>
             <p>
-            ${newArrivalList[product].price}
+            ${newArrivalList[product].price}$
             </p>
             <a href="product-detail.html?id=${newArrivalList[product].id}">View</a>
         </div>
@@ -359,7 +359,7 @@ for (let product in novelsList) {
             <img src="${novelsList[product].image[0]}" alt="">
             <h4>${novelsList[product].name}</h4>
             <p>
-            ${novelsList[product].price}
+            ${novelsList[product].price}$
             </p>
             <a href="product-detail.html?id=${novelsList[product].id}">View</a>
         </div>
@@ -379,3 +379,18 @@ if (flag == 1) {
   nameUser.innerHTML = userLogin.Name;
   beginLogin.style.display = "none";
 }
+
+// function hiển thị số lượng sản phẩm
+function showQuantityCart() {
+  // lấy giỏ hàng ra.length là được
+  let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+  let users = JSON.parse(localStorage.getItem("users"));
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].userID == checkLogin) {
+      console.log(users[i].cart);
+      document.getElementsByClassName("itemInCart")[0].innerHTML =
+        users[i].Cart.length;
+    }
+  }
+}
+showQuantityCart();

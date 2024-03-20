@@ -22,7 +22,10 @@
                     <li><a href="#catelories">Catelories</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#contactus">Contact Us</a></li>
-                    <li><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <div>
+                        <li><a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <div id="itemInCart" class="itemInCart">0</div>
+                    </div>
 
                 </ul>
                 <div class="search-bar">
@@ -35,19 +38,27 @@
     <!-- header end -->
 
     <!-- product start -->
-        <table border="1">
+        <table border="1" style="text-align: center;">
             <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Name</th>
+                    <th>Sách</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Số lượng còn</th>
+                    <th>Tổng tiền</th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>hay qua</td>
-                    <td>hay qua</td>
-                    <td>hay qua</td>
-                    <td>hay qua</td>
-                </tr>
-                
+                <tbody id="tbody">
+                    <div style="background-color: rgb(62, 207, 62);"></div>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Tổng tiền</th>
+                        <td id="sumPrice" colspan="5">500$</td>
+                        <td><button id="pay" style="height: 30px; width: 120px; border-radius: 3px; background-color: #ee4d2d; color: white;">Thanh toán</button></td>
+                    </tr>
+                </tfoot>
 
             </thead>
         </table>
@@ -56,6 +67,6 @@
     <!-- product end -->
 
     
-    <script src="./src/scripts/cart.js"></script>
+        <script src="./src/scripts/cart.js"></script>
 </body>
 </html>
