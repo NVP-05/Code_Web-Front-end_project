@@ -46,7 +46,7 @@ function addToCart(productId) {
   console.log(productId);
   let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
   if (checkLogin == null) {
-    window.location.href = "./login.html";
+    window.location.href = "../pages/login.html";
     return;
   } else {
     // console.log("Đã thành công");
@@ -73,6 +73,7 @@ function addToCart(productId) {
             });
             if (index == -1) {
               //tức là không có thêm bình thường
+              alert("Thêm vào giỏ hàng thành công.");
               console.log("chưa có ");
               users[i].Cart.push({ ...product[j], quantity: 1 });
               localStorage.setItem("users", JSON.stringify(users));
@@ -80,6 +81,7 @@ function addToCart(productId) {
             } else {
               //có rồi đi tăng số lượng
               // mình phải biết vị trí của cái cần tăng
+              alert("Sách đã có trong giỏ hàng.");
               users[i].Cart[index].quantity = ++users[i].Cart[index].quantity;
               localStorage.setItem("users", JSON.stringify(users));
             }

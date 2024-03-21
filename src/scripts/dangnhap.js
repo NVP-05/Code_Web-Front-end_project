@@ -30,7 +30,7 @@ formLogin.addEventListener("submit", function (e) {
     // Nếu có thì đăng nhập thành công và chuyển hướng về trang chủ
     flag = 1;
     localStorage.setItem("flag", JSON.stringify(flag));
-    window.location.href = "project.html";
+    window.location.href = "../pages/project.html";
     // Lưu ID đăng nhập lên local
     checkLogin = findUser.userID;
     localStorage.setItem("checkLogin", JSON.stringify(checkLogin));

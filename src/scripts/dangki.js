@@ -90,7 +90,7 @@ formDK.addEventListener("submit", function (e) {
     localStorage.setItem("users", JSON.stringify(userLocal));
     // Chuyển hướng về trang đăng nhập sau 1s
     setTimeout(() => {
-      window.location.href = "./login.html";
+      window.location.href = "../pages/login.html";
     }, 1000);
   }
 });
