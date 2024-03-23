@@ -10,6 +10,7 @@ const address = document.getElementById("address");
 // Element liên quan đến lỗi
 const userNameError = document.getElementById("userNameError");
 const emailError = document.getElementById("emailError");
+const emailError2 = document.getElementById("emailError2");
 const passwordError = document.getElementById("passwordError");
 const rePasswordError = document.getElementById("rePasswordError");
 
@@ -41,6 +42,17 @@ formDK.addEventListener("submit", function (e) {
     emailError.style.display = "block";
   } else {
     emailError.style.display = "none";
+
+    // Kiểm tra xem email đã được đăng kí hay chưa
+    for (let i = 0; i < userLocal.length; i++) {
+      if (email.value == userLocal[i].Mail) {
+        emailError2.style.display = "block";
+        return;
+      }else{
+        emailError2.style.display = "none";
+      }
+    }
+
     // Kiểm tra định dạng email
     if (!validateEmail(email.value)) {
       emailError.style.display = "block";
