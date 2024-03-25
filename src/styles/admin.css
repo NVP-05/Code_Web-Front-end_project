@@ -14,26 +14,46 @@ header .head{
 }
 
 header .head .head-1{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     text-align: center;
     background-color: black;
     color: white;
-    width: 300px;
+    width: 250px;
     height: 100vh;
     
 }
 
+header .head .head-1 hr{
+    margin-top: 20px;
+}
+
 header .head .head-1 h2 {
     margin-top: 30px;
+    font-size: 35px;
 }
 
-header .head .head-2 {
+header .head .head-1 ul {
+    list-style: none;
+    margin-left: -35px;
+}
+
+header .head .head-1 ul li {
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .head .head-1 ul li:hover {
+    background-color: rgb(85, 67, 208);
+    cursor: pointer;
+}
+
+header .head .head-2 table{
     text-align: center;
-    width: 100vw;
-    height: 100px;
-    background-color: black;
-    color: white;
 }
 
-header .head .head-2 h2 {
-    margin-top: 30px;
-}
+

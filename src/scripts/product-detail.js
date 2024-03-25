@@ -1,7 +1,7 @@
 // console.log(window.location.href.split("?")[1].split("=")[1])
 let id = window.location.href.split("?")[1].split("=")[1];
 
-let productList = JSON.parse(localStorage.getItem("produstList"));
+let productList = JSON.parse(localStorage.getItem("productList"));
 
 let product = productList.find(function (e, i) {
   return e.id === +id;
@@ -54,38 +54,42 @@ function addToCart(productId) {
     for (let i = 0; i < users.length; i++) {
       if (checkLogin == users[i].userID) {
         // console.log("1111", users[i].Cart);
-
-        let product = JSON.parse(localStorage.getItem("produstList"));
-        for (let j = 0; j < product.length; j++) {
-          if (productId == product[j].id) {
-            // lấy thông tin sản phẩm
-            console.log("1111", product[j]);
-            console.log("giỏ hàng của user sẽ là ", users[i].Cart);
-            // let a={...product[j],quantity:1}
-            /* 
-                        trước khi thêm vào phải xem trong giỏ hàng có sản phẩm đó chưa
-                        có rồi thì tăng số lượng còn chưa có thì thêm vào bt
-                    */
-            // kiểm tra xem trong giỏ hàng có tồn tại sản phẩm đó chưa
-            // duyệt giỏ hàng
-            let index = users[i].Cart.findIndex((item, index) => {
-              return item.id == productId;
-            });
-            if (index == -1) {
-              //tức là không có thêm bình thường
-              alert("Thêm vào giỏ hàng thành công.");
-              console.log("chưa có ");
-              users[i].Cart.push({ ...product[j], quantity: 1 });
-              localStorage.setItem("users", JSON.stringify(users));
-              showQuantityCart();
-            } else {
-              //có rồi đi tăng số lượng
-              // mình phải biết vị trí của cái cần tăng
-              alert("Sách đã có trong giỏ hàng.");
-              users[i].Cart[index].quantity = ++users[i].Cart[index].quantity;
-              localStorage.setItem("users", JSON.stringify(users));
+        if (users[i].status == true) {
+          let product = JSON.parse(localStorage.getItem("productList"));
+          for (let j = 0; j < product.length; j++) {
+            if (productId == product[j].id) {
+              // lấy thông tin sản phẩm
+              console.log("1111", product[j]);
+              console.log("giỏ hàng của user sẽ là ", users[i].Cart);
+              // let a={...product[j],quantity:1}
+              /* 
+                          trước khi thêm vào phải xem trong giỏ hàng có sản phẩm đó chưa
+                          có rồi thì tăng số lượng còn chưa có thì thêm vào bt
+                      */
+              // kiểm tra xem trong giỏ hàng có tồn tại sản phẩm đó chưa
+              // duyệt giỏ hàng
+              let index = users[i].Cart.findIndex((item, index) => {
+                return item.id == productId;
+              });
+              if (index == -1) {
+                //tức là không có thêm bình thường
+                alert("Thêm vào giỏ hàng thành công.");
+                console.log("chưa có ");
+                users[i].Cart.push({ ...product[j], quantity: 1 });
+                localStorage.setItem("users", JSON.stringify(users));
+                showQuantityCart();
+              } else {
+                //có rồi đi tăng số lượng
+                // mình phải biết vị trí của cái cần tăng
+                alert("Sách đã có trong giỏ hàng.");
+                users[i].Cart[index].quantity = ++users[i].Cart[index].quantity;
+                localStorage.setItem("users", JSON.stringify(users));
+              }
             }
           }
+        } else {
+          alert("Tài khoản của bạn đã bị khóa.");
+          break;
         }
       }
     }

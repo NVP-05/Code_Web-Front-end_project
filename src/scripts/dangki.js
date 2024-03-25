@@ -94,6 +94,7 @@ formDK.addEventListener("submit", function (e) {
       Mail: email.value,
       Pass: password.value,
       Dress: address.value,
+      status: true,
       Cart: [],
     };
     // Push user vào trong mảng userLocal

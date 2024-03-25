@@ -69,7 +69,7 @@ function showQuantityCart() {
 showQuantityCart();
 
 function addQuantity(productId) {
-  let productList = JSON.parse(localStorage.getItem("produstList"));
+  let productList = JSON.parse(localStorage.getItem("productList"));
   let users = JSON.parse(localStorage.getItem("users"));
   let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
 
@@ -97,7 +97,7 @@ function addQuantity(productId) {
 }
 
 function deleteQuantity(productId) {
-  let productList = JSON.parse(localStorage.getItem("produstList"));
+  let productList = JSON.parse(localStorage.getItem("productList"));
   let users = JSON.parse(localStorage.getItem("users"));
   let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
 
