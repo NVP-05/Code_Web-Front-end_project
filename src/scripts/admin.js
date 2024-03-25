@@ -1,10 +1,12 @@
 // render Users
 function renderUsers() {
   document.getElementById("table-users").style.display = "block";
+  document.getElementById("table-category").style.display = "none";
   document.getElementById("table-products").style.display = "none";
   document.getElementById("table-addBook").style.display = "none";
   document.getElementById("li-product").style.backgroundColor = "black";
   document.getElementById("li-logout").style.backgroundColor = "black";
+  document.getElementById("li-category").style.backgroundColor = "black";
 
   document.getElementById("li-users").style.backgroundColor =
     "rgb(85, 67, 208)";
@@ -44,13 +46,29 @@ function renderUsers() {
 }
 renderUsers();
 
+// render Category
+function renderCategory() {
+  document.getElementById("li-users").style.backgroundColor = "black";
+  document.getElementById("li-product").style.backgroundColor = "black";
+  document.getElementById("li-category").style.backgroundColor =
+    "rgb(85, 67, 208)";
+  document.getElementById("table-category").style.display = "block";
+  document.getElementById("table-users").style.display = "none";
+  document.getElementById("table-addBook").style.display = "none";
+  document.getElementById("table-products").style.display = "none";
+
+  let a = 0;
+}
+
 // render Products
 function renderProduct() {
   document.getElementById("table-users").style.display = "none";
+  document.getElementById("table-category").style.display = "none";
   document.getElementById("table-addBook").style.display = "block";
   document.getElementById("table-products").style.display = "block";
   document.getElementById("li-product").style.backgroundColor =
     "rgb(85, 67, 208)";
+  document.getElementById("li-category").style.backgroundColor = "black";
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-logout").style.backgroundColor = "black";
 
@@ -97,7 +115,7 @@ function addBook() {
   let productList = JSON.parse(localStorage.getItem("productList"));
   console.log(productList);
 
-  let idBook = document.getElementById("idBook");
+  // let idBook = document.getElementById("idBook");
   let imgBook = document.getElementById("imgBook");
   let nameBook = document.getElementById("nameBook");
   let categoryBook = document.getElementById("categoryBook");
@@ -118,8 +136,13 @@ function addBook() {
     statusNewbook = false;
   }
 
+  let idNewBook = 0;
+
+  for (let i = 0; i < productList.length; i++) {
+    idNewBook = productList[i].id;
+  }
   let newBook = {
-    id: +idBook.value,
+    id: idNewBook + 1,
     image: [`${"../assets/" + directory.split(`\\`).pop()}`],
     name: `${nameBook.value}`,
     category: +categoryBook.value,
@@ -133,6 +156,18 @@ function addBook() {
   };
   productList.push(newBook);
   localStorage.setItem("productList", JSON.stringify(productList));
+  renderProduct();
+
+  imgBook.value = "";
+  nameBook.value = " ";
+  categoryBook.value = " ";
+  authorBook.value = " ";
+  publisherBook.value = " ";
+  priceBook.value = " ";
+  stockBook.value = " ";
+  statusBook.value = " ";
+  saleBook.value = " ";
+  descriptionBook.value = " ";
 }
 
 function closeBook() {
@@ -141,6 +176,7 @@ function closeBook() {
 
 // Logout
 function logout() {
+  document.getElementById("li-category").style.backgroundColor = "black";
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-product").style.backgroundColor = "black";
   document.getElementById("li-logout").style.backgroundColor =
@@ -196,10 +232,4 @@ function unbanUser(idUser) {
       break;
     }
   }
-}
-
-// Hiển thị category
-
-function renderCategory() {
-  let a = 0;
 }

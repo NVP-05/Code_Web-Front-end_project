@@ -85,7 +85,7 @@ function addQuantity(productId) {
                 localStorage.setItem("users", JSON.stringify(users));
                 render();
               } else {
-                console.log("Sản phẩm trong kho không còn đủ.");
+                alert("Sản phẩm trong kho không còn đủ.");
               }
             }
           }
@@ -107,9 +107,20 @@ function deleteQuantity(productId) {
         if (productId == productList[j].id) {
           for (let k = 0; k < users[i].Cart.length; k++) {
             if (users[i].Cart[k].id == productId) {
+              if (users[i].Cart[k].quantity == 1) {
+                let choice =
+                  "Bạn có muốn xóa sách khỏi giỏ hàng hay không ?\nMuốn xóa chọn OK, còn không chọn Hủy.";
+                if (confirm(choice) == true) {
+                  console.log("Xóa sách thành công.");
+                  users[i].Cart.splice(k, 1);
+                  localStorage.setItem("users", JSON.stringify(users));
+                  totalAmount();
+                  render();
+                }
+              }
               if (users[i].Cart[k].quantity > 1) {
                 users[i].Cart[k].quantity--;
-                console.log(users[i].Cart[k].quantity);
+                // console.log(users[i].Cart[k].quantity);
                 localStorage.setItem("users", JSON.stringify(users));
                 render();
               } else {
