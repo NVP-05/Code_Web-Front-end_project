@@ -40,6 +40,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody id="renderUsers">
@@ -48,19 +49,87 @@
 
 
           <!-- table-category -->
-
-          <table id="table-category" style="display: none;" border="1"> 
+          <table id="table-addBook2" style="display: block; margin-top: 50px; margin-bottom: 100px; margin-left: 100px; width: 350px; border: 1px solid;">
             <thead>
               <tr>
-                <th>STT</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
+                <th colspan="2">Add new category</th>
               </tr>
             </thead>
-            <tbody id="renderCategory">
+            <tbody id="renderAddbook" style="margin-top: 30px;">
+              <!-- <tr>
+                <td><label for="idBook">Id:</label></td>
+                <td><input id="idBook" type="text"></td>  
+            </tr> -->
+            <tr>
+              <td><label for="imgBook">Img:</label></td>
+              <td><input id="imgBook" type="file"></td>  
+          </tr>
+              <tr>
+                <td><label for="nameBook">Name:</label></td>
+                <td><input id="nameBook" type="text"></td>  
+            </tr>
+            <!-- <tr>
+                <td><label for="categoryBook">Category:</label></td>
+                <td><input id="categoryBook" type="text"></td>  
+            </tr>
+            <tr>
+                <td><label for="authorBook">Author:</label></td>
+                <td><input id="authorBook" type="text"></td>  
+            </tr>
+            <tr>
+                <td><label for="publisherBook">Publisher:</label></td>
+                <td><input id="publisherBook" type="text"></td>  
+            </tr>
+            <tr>
+              <td><label for="priceBook">Price:</label></td>
+              <td><input id="priceBook" type="text"></td>  
+            </tr>
+            <tr>
+              <td><label for="stockBook">Stock:</label></td>
+              <td><input id="stockBook" type="text"></td>  
+            </tr> -->
+            <tr>
+              <td><label for="statusBook">Status:</label></td>
+              <td><input id="statusBook" type="text"></td>  
+            </tr>
+            <!-- <tr>
+              <td><label for="saleBook">Sale:</label></td>
+              <td><input id="saleBook" type="text"></td>  
+            </tr> -->
+            <tr>
+              <td><label for="descriptionBook">Description:</label></td>
+              <td><input id="descriptionBook" type="text"></td>  
+            </tr>
+              
             </tbody>
+            <footer>
+              <tr>
+                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="addBookcategory()">Add</button></th>
+              </tr>
+
+              <tr>
+                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="closeBookcategory()">Close</button></th>
+              </tr>
+            </footer>
           </table>
+
+
+          <div id="table-category" style="display: none;" >
+
+            <table border="1"> 
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="renderCategory">
+              </tbody>
+            </table>
+
+          </div>
 
 
           <!-- table-addbook  -->
@@ -123,10 +192,17 @@
                 <tr>
                   <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="addBook()">Add</button></th>
                 </tr>
+
                 <tr>
                   <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="closeBook()">Close</button></th>
                 </tr>
               </footer>
+            </table>
+            <table id="table-addBook-1" style="display: none;" >
+              <tr>
+              <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="renderProduct()">Add book</button></th>
+              </tr>
+
             </table>
 
           </div>

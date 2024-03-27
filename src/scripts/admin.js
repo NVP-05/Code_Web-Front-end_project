@@ -3,6 +3,8 @@ function renderUsers() {
   document.getElementById("table-users").style.display = "block";
   document.getElementById("table-category").style.display = "none";
   document.getElementById("table-products").style.display = "none";
+  document.getElementById("table-addBook2").style.display = "none";
+  document.getElementById("table-addBook-1").style.display = "none";
   document.getElementById("table-addBook").style.display = "none";
   document.getElementById("li-product").style.backgroundColor = "black";
   document.getElementById("li-logout").style.backgroundColor = "black";
@@ -56,8 +58,28 @@ function renderCategory() {
   document.getElementById("table-users").style.display = "none";
   document.getElementById("table-addBook").style.display = "none";
   document.getElementById("table-products").style.display = "none";
+  document.getElementById("table-addBook-1").style.display = "none";
+  document.getElementById("table-addBook2").style.display = "block";
 
+  let categoryList = JSON.parse(localStorage.getItem("categoryList"));
+
+  let text = ``;
   let a = 0;
+  for (let i = 0; i < categoryList.length; i++) {
+    a++;
+    text += `
+            <tr>
+              <td>${a}</td>
+              <td>${categoryList[i].id}</td>
+              <td>${categoryList[i].name}</td>
+              <td>
+                  <button onclick="hidenCategory(${categoryList[i].id})" style="background-color: rgb(238, 65, 65); ">Delete</button>
+                  <button onclick="displayCategory(${categoryList[i].id})" style="background-color: rgb(47, 211, 47);">Remove</button>
+              </td>
+            </tr>
+            `;
+    document.getElementById("renderCategory").innerHTML = text;
+  }
 }
 
 // render Products
@@ -65,6 +87,8 @@ function renderProduct() {
   document.getElementById("table-users").style.display = "none";
   document.getElementById("table-category").style.display = "none";
   document.getElementById("table-addBook").style.display = "block";
+  document.getElementById("table-addBook-1").style.display = "none";
+  document.getElementById("table-addBook2").style.display = "none";
   document.getElementById("table-products").style.display = "block";
   document.getElementById("li-product").style.backgroundColor =
     "rgb(85, 67, 208)";
@@ -170,8 +194,69 @@ function addBook() {
   descriptionBook.value = " ";
 }
 
+// Đóng table addBook
 function closeBook() {
   document.getElementById("table-addBook").style.display = "none";
+  document.getElementById("table-addBook-1").style.display = "block";
+}
+
+// Thêm sách trong Category
+function addBookcategory() {
+  let productList = JSON.parse(localStorage.getItem("productList"));
+
+  // let idBook = document.getElementById("idBook");
+  let imgBook = document.getElementById("imgBook");
+  let nameBook = document.getElementById("nameBook");
+  let categoryBook = document.getElementById("categoryBook");
+  let authorBook = document.getElementById("authorBook");
+  let publisherBook = document.getElementById("publisherBook");
+  let priceBook = document.getElementById("priceBook");
+  let stockBook = document.getElementById("stockBook");
+  let statusBook = document.getElementById("statusBook");
+  let saleBook = document.getElementById("saleBook");
+  let descriptionBook = document.getElementById("descriptionBook");
+
+  let directory = imgBook.value;
+  let statusNewbook;
+
+  if (statusBook.value == "true") {
+    statusNewbook = true;
+  } else {
+    statusNewbook = false;
+  }
+
+  let idNewBook = 0;
+
+  for (let i = 0; i < productList.length; i++) {
+    idNewBook = productList[i].id;
+  }
+  let newBook = {
+    id: idNewBook + 1,
+    image: [`${"../assets/" + directory.split(`\\`).pop()}`],
+    name: `${nameBook.value}`,
+    category: +categoryBook.value,
+    author: `${authorBook.value}`,
+    publisher: `${publisherBook.value}`,
+    price: +priceBook.value,
+    stock: +stockBook.value,
+    status: statusNewbook,
+    sale: saleBook.value,
+    description: `${descriptionBook.value}`,
+  };
+  productList.push(newBook);
+  localStorage.setItem("productList", JSON.stringify(productList));
+  renderCategory();
+
+  imgBook.value = "";
+  nameBook.value = " ";
+  categoryBook.value = " ";
+  authorBook.value = " ";
+  publisherBook.value = " ";
+  priceBook.value = " ";
+  stockBook.value = " ";
+  statusBook.value = " ";
+  saleBook.value = " ";
+  descriptionBook.value = " ";
 }
 
 // Logout
@@ -186,6 +271,7 @@ function logout() {
   }, 500);
 }
 
+// hiden và display Product
 function hidenProduct(idBook) {
   let productList = JSON.parse(localStorage.getItem("productList"));
   for (let i = 0; i < productList.length; i++) {
@@ -205,6 +291,31 @@ function displayProduct(idBook) {
       productList[i].status = true;
       localStorage.setItem("productList", JSON.stringify(productList));
       renderProduct();
+      break;
+    }
+  }
+}
+
+// hiden và display Categorry
+function hidenCategory(idBook) {
+  let productList = JSON.parse(localStorage.getItem("productList"));
+  for (let i = 0; i < productList.length; i++) {
+    if (productList[i].id == idBook) {
+      productList[i].status = false;
+      localStorage.setItem("productList", JSON.stringify(productList));
+      renderCategory();
+      break;
+    }
+  }
+}
+
+function displayCategory(idBook) {
+  let productList = JSON.parse(localStorage.getItem("productList"));
+  for (let i = 0; i < productList.length; i++) {
+    if (productList[i].id == idBook) {
+      productList[i].status = true;
+      localStorage.setItem("productList", JSON.stringify(productList));
+      renderCategory();
       break;
     }
   }

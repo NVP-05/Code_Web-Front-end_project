@@ -28,7 +28,7 @@ function render() {
   </p>
   <p><b>Description</b>: <span id="description">${product.description}</span></p>
   <p><b>Price</b>: <span style="color: red;" id="price">${product.price}$</span></p >
-  <p><button type="submit" class="btn btn-primary" onclick="addToCart(${product.id})">Buy</button></p>
+  <p><button type="submit" class="btn btn-primary" onclick="addToCart(${product.id})">Add to cart</button></p>
   `;
   document.getElementById("body-detail").innerHTML = text;
 }
@@ -82,7 +82,7 @@ function addToCart(productId) {
                 //có rồi đi tăng số lượng
                 // mình phải biết vị trí của cái cần tăng
                 alert("Sách đã có trong giỏ hàng.");
-                users[i].Cart[index].quantity = ++users[i].Cart[index].quantity;
+                // users[i].Cart[index].quantity = ++users[i].Cart[index].quantity;
                 localStorage.setItem("users", JSON.stringify(users));
               }
             }
