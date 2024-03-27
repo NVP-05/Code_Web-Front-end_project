@@ -228,32 +228,32 @@
 //   },
 // ];
 
-let categoryList = [
-  {
-    id: 1,
-    name: "Best Sellers",
-    description: "Most attractive story and experience",
-    image: "../assets/sqgouvq4.png",
-    status: true,
-  },
-  {
-    id: 2,
-    name: "New Arrivals",
-    description: "For new exploser and new knowledge",
-    image: "../assets/new_arrival.jpg",
-    status: true,
-  },
-  {
-    id: 3,
-    name: "Novels",
-    description: "Join in many wonderful imaginary worlds and stories",
-    image: "../assets/20230919_2XwWzgtu.png",
-    status: true,
-  },
-];
+// let categoryList = [
+//   {
+//     id: 1,
+//     name: "Best Sellers",
+//     description: "Most attractive story and experience",
+//     image: "../assets/sqgouvq4.png",
+//     status: true,
+//   },
+//   {
+//     id: 2,
+//     name: "New Arrivals",
+//     description: "For new exploser and new knowledge",
+//     image: "../assets/new_arrival.jpg",
+//     status: true,
+//   },
+//   {
+//     id: 3,
+//     name: "Novels",
+//     description: "Join in many wonderful imaginary worlds and stories",
+//     image: "../assets/20230919_2XwWzgtu.png",
+//     status: true,
+//   },
+// ];
 
 // localStorage.setItem("productList", JSON.stringify(productList));
-localStorage.setItem("categoryList", JSON.stringify(categoryList));
+// localStorage.setItem("categoryList", JSON.stringify(categoryList));
 
 let bestSellerCategoryBanner = document.getElementById("category-banner");
 let bestSellerCategoryTitle = document.getElementById("category-title");

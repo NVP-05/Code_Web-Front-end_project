@@ -115,6 +115,7 @@ function deleteQuantity(productId) {
                   users[i].Cart.splice(k, 1);
                   localStorage.setItem("users", JSON.stringify(users));
                   totalAmount();
+                  showQuantityCart();
                   render();
                 }
               }

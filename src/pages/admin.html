@@ -20,9 +20,9 @@
           <hr>
           <div>
             <ul>
-              <li id="li-users" onclick="renderUsers()"><i class='bx bxs-user'></i>&nbsp; User</li>
-              <li id="li-category" onclick="renderCategory()"><i class='bx bxs-category'></i>&nbsp; Category</li>
-              <li id="li-product" onclick="renderProduct()"><i class='bx bxs-cart' ></i>&nbsp; Product</li>
+              <li id="li-users" onclick="renderUsers()"><i class='bx bxs-user'></i>&nbsp; <a href="./admin.user.html">User</a></li>
+              <li id="li-category" onclick="renderCategory()"><i class='bx bxs-category'></i>&nbsp; <a href="./admin.category.html">Category</a></li>
+              <li id="li-product" onclick="renderProduct()"><i class='bx bxs-cart' ></i>&nbsp; <a href="./admin.product.html">Product</a></li>
               <li id="li-logout" onclick="logout()"><i class='bx bx-log-out'></i>&nbsp; Logout</li>
             </ul>            
           </div>
@@ -49,24 +49,24 @@
 
 
           <!-- table-category -->
-          <table id="table-addBook2" style="display: block; margin-top: 50px; margin-bottom: 100px; margin-left: 100px; width: 350px; border: 1px solid;">
+          <table id="table-addCategory" style="display: block; margin-top: 50px; margin-bottom: 100px; margin-left: 100px; width: 350px; border: 1px solid;">
             <thead>
               <tr>
                 <th colspan="2">Add new category</th>
               </tr>
             </thead>
-            <tbody id="renderAddbook" style="margin-top: 30px;">
+            <tbody id="renderAddbook2" style="margin-top: 30px;">
               <!-- <tr>
                 <td><label for="idBook">Id:</label></td>
                 <td><input id="idBook" type="text"></td>  
             </tr> -->
             <tr>
-              <td><label for="imgBook">Img:</label></td>
-              <td><input id="imgBook" type="file"></td>  
+              <td><label for="imgCategory">Img:</label></td>
+              <td><input id="imgCategory" type="file"></td>  
           </tr>
               <tr>
-                <td><label for="nameBook">Name:</label></td>
-                <td><input id="nameBook" type="text"></td>  
+                <td><label for="nameCategory">Name:</label></td>
+                <td><input id="nameCategory" type="text"></td>  
             </tr>
             <!-- <tr>
                 <td><label for="categoryBook">Category:</label></td>
@@ -89,26 +89,26 @@
               <td><input id="stockBook" type="text"></td>  
             </tr> -->
             <tr>
-              <td><label for="statusBook">Status:</label></td>
-              <td><input id="statusBook" type="text"></td>  
+              <td><label for="statusCategory">Status:</label></td>
+              <td><input id="statusCategory" type="text"></td>  
             </tr>
             <!-- <tr>
               <td><label for="saleBook">Sale:</label></td>
               <td><input id="saleBook" type="text"></td>  
             </tr> -->
             <tr>
-              <td><label for="descriptionBook">Description:</label></td>
-              <td><input id="descriptionBook" type="text"></td>  
+              <td><label for="descriptionCategory">Description:</label></td>
+              <td><input id="descriptionCategory" type="text"></td>  
             </tr>
               
             </tbody>
             <footer>
               <tr>
-                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="addBookcategory()">Add</button></th>
+                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="addCategory()">Add</button></th>
               </tr>
 
               <tr>
-                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="closeBookcategory()">Close</button></th>
+                <th colspan="2"><button style="width: 285px; height: 30px; background-color: rgb(60, 219, 60);font-size: 15px;" onclick="closeCategory()">Close</button></th>
               </tr>
             </footer>
           </table>

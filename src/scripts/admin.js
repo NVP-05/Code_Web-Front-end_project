@@ -3,7 +3,7 @@ function renderUsers() {
   document.getElementById("table-users").style.display = "block";
   document.getElementById("table-category").style.display = "none";
   document.getElementById("table-products").style.display = "none";
-  document.getElementById("table-addBook2").style.display = "none";
+  document.getElementById("table-addCategory").style.display = "none";
   document.getElementById("table-addBook-1").style.display = "none";
   document.getElementById("table-addBook").style.display = "none";
   document.getElementById("li-product").style.backgroundColor = "black";
@@ -59,7 +59,7 @@ function renderCategory() {
   document.getElementById("table-addBook").style.display = "none";
   document.getElementById("table-products").style.display = "none";
   document.getElementById("table-addBook-1").style.display = "none";
-  document.getElementById("table-addBook2").style.display = "block";
+  document.getElementById("table-addCategory").style.display = "block";
 
   let categoryList = JSON.parse(localStorage.getItem("categoryList"));
 
@@ -88,7 +88,7 @@ function renderProduct() {
   document.getElementById("table-category").style.display = "none";
   document.getElementById("table-addBook").style.display = "block";
   document.getElementById("table-addBook-1").style.display = "none";
-  document.getElementById("table-addBook2").style.display = "none";
+  document.getElementById("table-addCategory").style.display = "none";
   document.getElementById("table-products").style.display = "block";
   document.getElementById("li-product").style.backgroundColor =
     "rgb(85, 67, 208)";
@@ -201,63 +201,51 @@ function closeBook() {
 }
 
 // Thêm sách trong Category
-function addBookcategory() {
-  let productList = JSON.parse(localStorage.getItem("productList"));
+function addCategory() {
+  let categoryList = JSON.parse(localStorage.getItem("categoryList"));
 
-  // let idBook = document.getElementById("idBook");
-  let imgBook = document.getElementById("imgBook");
-  let nameBook = document.getElementById("nameBook");
-  let categoryBook = document.getElementById("categoryBook");
-  let authorBook = document.getElementById("authorBook");
-  let publisherBook = document.getElementById("publisherBook");
-  let priceBook = document.getElementById("priceBook");
-  let stockBook = document.getElementById("stockBook");
-  let statusBook = document.getElementById("statusBook");
-  let saleBook = document.getElementById("saleBook");
-  let descriptionBook = document.getElementById("descriptionBook");
+  let imgCategory = document.getElementById("imgCategory");
+  let nameCategory = document.getElementById("nameCategory");
+  let statusCategory = document.getElementById("statusCategory");
+  let descriptionCategory= document.getElementById("descriptionCategory");
 
-  let directory = imgBook.value;
-  let statusNewbook;
+  let directory = imgCategory.value;
+  let statusNewcategory;
 
-  if (statusBook.value == "true") {
-    statusNewbook = true;
+  if (statusCategory.value == "true") {
+    statusNewcategory = true;
   } else {
-    statusNewbook = false;
+    statusNewcategory = false;
   }
 
-  let idNewBook = 0;
+  let idNewCategory = 0;
 
-  for (let i = 0; i < productList.length; i++) {
-    idNewBook = productList[i].id;
+  for (let i = 0; i < categoryList.length; i++) {
+    idNewCategory = categoryList[i].id;
   }
-  let newBook = {
-    id: idNewBook + 1,
+  let newCategory = {
+    id: idNewCategory + 1,
     image: [`${"../assets/" + directory.split(`\\`).pop()}`],
-    name: `${nameBook.value}`,
-    category: +categoryBook.value,
-    author: `${authorBook.value}`,
-    publisher: `${publisherBook.value}`,
-    price: +priceBook.value,
-    stock: +stockBook.value,
-    status: statusNewbook,
-    sale: saleBook.value,
-    description: `${descriptionBook.value}`,
+    name: `${nameCategory.value}`,
+    status: statusNewcategory,
+    description: `${descriptionCategory.value}`,
   };
-  productList.push(newBook);
-  localStorage.setItem("productList", JSON.stringify(productList));
+  categoryList.push(newCategory);
+  localStorage.setItem("categoryList", JSON.stringify(categoryList));
   renderCategory();
 
   imgBook.value = "";
   nameBook.value = " ";
-  categoryBook.value = " ";
-  authorBook.value = " ";
-  publisherBook.value = " ";
-  priceBook.value = " ";
-  stockBook.value = " ";
   statusBook.value = " ";
-  saleBook.value = " ";
   descriptionBook.value = " ";
 }
+
+// Đóng table addBook
+function closeCategory() {
+  document.getElementById("table-addCategory").style.display = "none";
+  document.getElementById("table-addBook-1").style.display = "block";
+}
+
 
 // Logout
 function logout() {
