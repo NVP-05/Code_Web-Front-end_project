@@ -147,18 +147,18 @@ function addBook() {
   let publisherBook = document.getElementById("publisherBook");
   let priceBook = document.getElementById("priceBook");
   let stockBook = document.getElementById("stockBook");
-  let statusBook = document.getElementById("statusBook");
+  // let statusBook = document.getElementById("statusBook");
   let saleBook = document.getElementById("saleBook");
   let descriptionBook = document.getElementById("descriptionBook");
 
   let directory = imgBook.value;
-  let statusNewbook;
+  // let statusNewbook;
 
-  if (statusBook.value == "true") {
-    statusNewbook = true;
-  } else {
-    statusNewbook = false;
-  }
+  // if (statusBook.value == "true") {
+  //   statusNewbook = true;
+  // } else {
+  //   statusNewbook = false;
+  // }
 
   let idNewBook = 0;
 
@@ -174,7 +174,7 @@ function addBook() {
     publisher: `${publisherBook.value}`,
     price: +priceBook.value,
     stock: +stockBook.value,
-    status: statusNewbook,
+    status: true,
     sale: saleBook.value,
     description: `${descriptionBook.value}`,
   };
@@ -207,16 +207,16 @@ function addCategory() {
   let imgCategory = document.getElementById("imgCategory");
   let nameCategory = document.getElementById("nameCategory");
   let statusCategory = document.getElementById("statusCategory");
-  let descriptionCategory= document.getElementById("descriptionCategory");
+  let descriptionCategory = document.getElementById("descriptionCategory");
 
   let directory = imgCategory.value;
-  let statusNewcategory;
+  // let statusNewcategory;
 
-  if (statusCategory.value == "true") {
-    statusNewcategory = true;
-  } else {
-    statusNewcategory = false;
-  }
+  // if (statusCategory.value == "true") {
+  //   statusNewcategory = true;
+  // } else {
+  //   statusNewcategory = false;
+  // }
 
   let idNewCategory = 0;
 
@@ -227,7 +227,7 @@ function addCategory() {
     id: idNewCategory + 1,
     image: [`${"../assets/" + directory.split(`\\`).pop()}`],
     name: `${nameCategory.value}`,
-    status: statusNewcategory,
+    status: true,
     description: `${descriptionCategory.value}`,
   };
   categoryList.push(newCategory);
@@ -245,7 +245,6 @@ function closeCategory() {
   document.getElementById("table-addCategory").style.display = "none";
   document.getElementById("table-addBook-1").style.display = "block";
 }
-
 
 // Logout
 function logout() {

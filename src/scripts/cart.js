@@ -1,3 +1,6 @@
+// let order = [];
+// localStorage.setItem("order", JSON.stringify(order));
+
 function render() {
   let a = 0;
   let users = JSON.parse(localStorage.getItem("users"));
@@ -51,6 +54,7 @@ function totalAmount() {
     }
   }
   sumPrice.innerHTML = sum + "$";
+  localStorage.setItem("total", JSON.stringify(sum));
 }
 totalAmount();
 
@@ -134,4 +138,28 @@ function deleteQuantity(productId) {
     }
   }
   totalAmount();
+}
+
+function pay() {
+  let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+  let users = JSON.parse(localStorage.getItem("users"));
+  let order = JSON.parse(localStorage.getItem("order"));
+  let total = JSON.parse(localStorage.getItem("total"));
+
+  for (let i = 0; i < users.length; i++) {
+    if (checkLogin == users[i].userID) {
+      let newOrder = {
+        id: checkLogin,
+        books: users[i].Cart,
+        total: total,
+      };
+      order.push(newOrder);
+      localStorage.setItem("order", JSON.stringify(order));
+      users[i].Cart = [];
+      localStorage.setItem("users", JSON.stringify(users));
+      render();
+      showQuantityCart();
+      totalAmount();
+    }
+  }
 }

@@ -4,6 +4,7 @@ function renderUsers() {
     document.getElementById("li-product").style.backgroundColor = "black";
     document.getElementById("li-logout").style.backgroundColor = "black";
     document.getElementById("li-category").style.backgroundColor = "black";
+    document.getElementById("li-order").style.backgroundColor = "black";
   
     document.getElementById("li-users").style.backgroundColor =
       "rgb(85, 67, 208)";

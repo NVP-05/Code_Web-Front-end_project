@@ -2,6 +2,8 @@
 function renderCategory() {
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-product").style.backgroundColor = "black";
+  document.getElementById("li-order").style.backgroundColor = "black";
+  document.getElementById("li-logout").style.backgroundColor = "black";
   document.getElementById("li-category").style.backgroundColor =
     "rgb(85, 67, 208)";
   document.getElementById("table-category").style.display = "block";

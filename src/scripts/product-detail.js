@@ -46,6 +46,7 @@ function addToCart(productId) {
   console.log(productId);
   let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
   if (checkLogin == null) {
+    alert("Bạn cần phải đăng nhập mới được mua hàng.");
     window.location.href = "../pages/login.html";
     return;
   } else {

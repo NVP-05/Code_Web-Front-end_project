@@ -12,6 +12,7 @@ function renderProduct() {
   document.getElementById("li-category").style.backgroundColor = "black";
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-logout").style.backgroundColor = "black";
+  document.getElementById("li-order").style.backgroundColor = "black";
 
   let products = JSON.parse(localStorage.getItem("productList"));
   let a = 0;
@@ -66,18 +67,18 @@ function addBook(idBook) {
   let publisherBook = document.getElementById("publisherBook");
   let priceBook = document.getElementById("priceBook");
   let stockBook = document.getElementById("stockBook");
-  let statusBook = document.getElementById("statusBook");
+  // let statusBook = document.getElementById("statusBook");
   let saleBook = document.getElementById("saleBook");
   let descriptionBook = document.getElementById("descriptionBook");
 
   let directory = imgBook.value;
-  let statusNewbook;
+  // let statusNewbook;
 
-  if (statusBook.value == "true") {
-    statusNewbook = true;
-  } else {
-    statusNewbook = false;
-  }
+  // if (statusBook.value == "true") {
+  //   statusNewbook = true;
+  // } else {
+  //   statusNewbook = false;
+  // }
 
   if (flag == 0) {
     let idNewBook = 0;
@@ -94,7 +95,7 @@ function addBook(idBook) {
       publisher: `${publisherBook.value}`,
       price: +priceBook.value,
       stock: +stockBook.value,
-      status: statusNewbook,
+      status: true,
       sale: saleBook.value,
       description: `${descriptionBook.value}`,
     };
@@ -108,7 +109,7 @@ function addBook(idBook) {
     authorBook.value = " ";
     priceBook.value = " ";
     stockBook.value = " ";
-    statusBook.value = " ";
+    // statusBook.value = " ";
     saleBook.value = " ";
     descriptionBook.value = " ";
     publisherBook.value = " ";
@@ -125,7 +126,7 @@ function addBook(idBook) {
         productList[i].publisher = `${publisherBook.value}`;
         productList[i].price = +priceBook.value;
         productList[i].stock = +stockBook.value;
-        productList[i].status = statusNewbook;
+        // productList[i].status = statusNewbook;
         productList[i].sale = saleBook.value;
         productList[i].description = `${descriptionBook.value}`;
         console.log(productList[i]);
@@ -151,7 +152,7 @@ function displayAddBook() {
   document.getElementById("authorBook").value = " ";
   document.getElementById("priceBook").value = " ";
   document.getElementById("stockBook").value = " ";
-  document.getElementById("statusBook").value = " ";
+  // document.getElementById("statusBook").value = " ";
   document.getElementById("saleBook").value = " ";
   document.getElementById("publisherBook").value = " ";
   document.getElementById("descriptionBook").value = " ";
@@ -219,7 +220,7 @@ function editProduct(idBook) {
   let saleBook = document.getElementById("saleBook");
   let descriptionBook = document.getElementById("descriptionBook");
   let publisherBook = document.getElementById("publisherBook");
-  let statusBook = document.getElementById("statusBook");
+  // let statusBook = document.getElementById("statusBook");
   let categoryBook = document.getElementById("categoryBook");
 
   for (let i = 0; i < productList.length; i++) {
@@ -232,7 +233,7 @@ function editProduct(idBook) {
       saleBook.value = productList[i].sale;
       descriptionBook.value = productList[i].description;
       publisherBook.value = productList[i].publisher;
-      statusBook.value = productList[i].status;
+      // statusBook.value = productList[i].status;
       categoryBook.value = productList[i].category;
       break;
     }

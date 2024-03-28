@@ -328,33 +328,37 @@ function render() {
   }
 
   for (let product in newArrivalList) {
-    newArrivalProductContainer.innerHTML += `
-      <div class="col">
-                      
-          <div class="book">
-              <img src="${newArrivalList[product].image[0]}" alt="">
-              <h4>${newArrivalList[product].name}</h4>
-              <p>
-              ${newArrivalList[product].price}$
-              </p>
-              <a href="product-detail.html?id=${newArrivalList[product].id}">View</a>
-          </div>
-      </div>`;
+    if (newArrivalList[product].status == true) {
+      newArrivalProductContainer.innerHTML += `
+        <div class="col">
+                        
+            <div class="book">
+                <img src="${newArrivalList[product].image[0]}" alt="">
+                <h4>${newArrivalList[product].name}</h4>
+                <p>
+                ${newArrivalList[product].price}$
+                </p>
+                <a href="product-detail.html?id=${newArrivalList[product].id}">View</a>
+            </div>
+        </div>`;
+    }
   }
 
   for (let product in novelsList) {
-    novelsProductContainer.innerHTML += `
-      <div class="col">
-                      
-          <div class="book">
-              <img src="${novelsList[product].image[0]}" alt="">
-              <h4>${novelsList[product].name}</h4>
-              <p>
-              ${novelsList[product].price}$
-              </p>
-              <a href="product-detail.html?id=${novelsList[product].id}">View</a>
-          </div>
-      </div>`;
+    if (novelsList[product].status == true) {
+      novelsProductContainer.innerHTML += `
+        <div class="col">
+                        
+            <div class="book">
+                <img src="${novelsList[product].image[0]}" alt="">
+                <h4>${novelsList[product].name}</h4>
+                <p>
+                ${novelsList[product].price}$
+                </p>
+                <a href="product-detail.html?id=${novelsList[product].id}">View</a>
+            </div>
+        </div>`;
+    }
   }
 }
 render();
@@ -387,3 +391,10 @@ function showQuantityCart() {
   }
 }
 showQuantityCart();
+
+function logout() {
+  let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+  checkLogin = null;
+
+  localStorage.setItem("checkLogin", JSON.stringify(checkLogin));
+}
