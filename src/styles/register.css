@@ -14,9 +14,9 @@ body {
 
 #table {
     width: 500px;
-    height: 500px;
+    height: 630px;
     background-color: white;
     margin: auto; 
-    margin-top: 100px;    
+    margin-top: 55px;    
     border-radius: 10px;
 }
