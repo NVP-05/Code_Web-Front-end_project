@@ -5,7 +5,7 @@ const userName = document.getElementById("userName");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const rePassword = document.getElementById("rePassword");
-const address = document.getElementById("address");
+// const address = document.getElementById("address");
 
 // Element liên quan đến lỗi
 const userNameError = document.getElementById("userNameError");
@@ -16,11 +16,6 @@ const rePasswordError = document.getElementById("rePasswordError");
 
 //Lấy dữ liệu từ localStorage
 const userLocal = JSON.parse(localStorage.getItem("users")) || [];
-/**
- * Validate địa chỉ email
- * @param {*} email:chuỗi email người dùng nhập vào
- * @returns: Dữ liệu nếu email đúng định dạng, undefined nếu email không đúng định dạng
- */
 
 function validateEmail(email) {
   return String(email)
@@ -48,7 +43,7 @@ formDK.addEventListener("submit", function (e) {
       if (email.value == userLocal[i].Mail) {
         emailError2.style.display = "block";
         return;
-      }else{
+      } else {
         emailError2.style.display = "none";
       }
     }
@@ -93,7 +88,7 @@ formDK.addEventListener("submit", function (e) {
       Name: userName.value,
       Mail: email.value,
       Pass: password.value,
-      Dress: address.value,
+      // Dress: address.value,
       status: true,
       Cart: [],
     };
@@ -101,6 +96,7 @@ formDK.addEventListener("submit", function (e) {
     userLocal.push(user);
     // Lưu trữ dữ liệu lên Local
     localStorage.setItem("users", JSON.stringify(userLocal));
+    alert("Đăng kí thành công.");
     // Chuyển hướng về trang đăng nhập sau 1s
     setTimeout(() => {
       window.location.href = "../pages/login.html";

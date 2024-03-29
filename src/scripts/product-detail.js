@@ -1,6 +1,12 @@
 // console.log(window.location.href.split("?")[1].split("=")[1])
 let id = window.location.href.split("?")[1].split("=")[1];
 
+// format giá tiền
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 let productList = JSON.parse(localStorage.getItem("productList"));
 
 let product = productList.find(function (e, i) {
@@ -24,11 +30,19 @@ function render() {
   <p id="authorMedia" >
       <span><b>Author</b>: </span><span id="author">${product.author}</span>.
       <p></p>
-      <span><b>Publisher</b>: </span><span id="publisher">${product.publisher}</span>.
+      <span><b>Publisher</b>: </span><span id="publisher">${
+        product.publisher
+      }</span>.
   </p>
-  <p><b>Description</b>: <span id="description">${product.description}</span></p>
-  <p><b>Price</b>: <span style="color: red;" id="price">${product.price}$</span></p >
-  <p><button type="submit" class="btn btn-primary" onclick="addToCart(${product.id})">Add to cart</button></p>
+  <p><b>Description</b>: <span id="description">${
+    product.description
+  }</span></p>
+  <p><b>Price</b>: <span style="color: red;" id="price">${formatter.format(
+    product.price
+  )}</span></p >
+  <p><button type="submit" class="btn btn-primary" onclick="addToCart(${
+    product.id
+  })">Add to cart</button></p>
   `;
   document.getElementById("body-detail").innerHTML = text;
 }

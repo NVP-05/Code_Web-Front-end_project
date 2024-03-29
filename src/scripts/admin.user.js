@@ -19,7 +19,6 @@ function renderUsers() {
           <td>${a}</td>
           <td>${users[i].Name}</td>
           <td>${users[i].Mail}</td>
-          <td>${users[i].Dress}</td>
           <td>
               <button onclick="banUser(${users[i].userID})" style="background-color: rgb(238, 65, 65);">Khóa</button>
           </td>
@@ -32,7 +31,6 @@ function renderUsers() {
           <td>${a}</td>
           <td>${users[i].Name}</td>
           <td>${users[i].Mail}</td>
-          <td>${users[i].Dress}</td>
           <td>
               <button onclick="unbanUser(${users[i].userID})" style="background-color: rgb(47, 211, 47);">Mở Khóa</button>
           </td>

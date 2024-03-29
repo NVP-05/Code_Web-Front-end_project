@@ -1,6 +1,12 @@
 // let order = [];
 // localStorage.setItem("order", JSON.stringify(order));
 
+// format giá tiền
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 function render() {
   let a = 0;
   let users = JSON.parse(localStorage.getItem("users"));
@@ -17,11 +23,11 @@ function render() {
                       users[i].Cart[j].image
                     }" alt=""></div></td>
                     <td>${users[i].Cart[j].name}</td>
-                    <td>${users[i].Cart[j].price}$</td>
+                    <td>${formatter.format(users[i].Cart[j].price)}</td>
                     <td>${users[i].Cart[j].stock}</td>
                     <td>${
-                      users[i].Cart[j].quantity * users[i].Cart[j].price
-                    }$</td>
+                      formatter.format(users[i].Cart[j].quantity * users[i].Cart[j].price)
+                    }</td>
                     <td><button style = "font-size: 15px;height: 20px; width: 38px; background-color: rgb(62, 207, 62);" onclick="addQuantity(${
                       users[i].Cart[j].id
                     })">+</button>
@@ -53,7 +59,7 @@ function totalAmount() {
       }
     }
   }
-  sumPrice.innerHTML = sum + "$";
+  sumPrice.innerHTML = formatter.format(sum);
   localStorage.setItem("total", JSON.stringify(sum));
 }
 totalAmount();

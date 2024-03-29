@@ -259,6 +259,12 @@ let bestSellerCategoryBanner = document.getElementById("category-banner");
 let bestSellerCategoryTitle = document.getElementById("category-title");
 let bestSellerProductContainer = document.getElementById("product-container");
 
+// format giá tiền
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 let newArrivalCategoryBanner = document.getElementById("new-arrival-banner");
 let newArrivalCategoryTitle = document.getElementById("new-arrival-title");
 let newArrivalProductContainer = document.getElementById(
@@ -319,9 +325,11 @@ function render() {
             <img src="${bestSellerList[product].image[0]}" alt="">
             <h4>${bestSellerList[product].name}</h4>
             <p>
-            ${bestSellerList[product].price}$
+            ${formatter.format(bestSellerList[product].price)}
             </p>
-            <a href="product-detail.html?id=${bestSellerList[product].id}">View</a>
+            <a href="product-detail.html?id=${
+              bestSellerList[product].id
+            }">View</a>
         </div>
         </div>`;
     }
@@ -336,9 +344,11 @@ function render() {
                 <img src="${newArrivalList[product].image[0]}" alt="">
                 <h4>${newArrivalList[product].name}</h4>
                 <p>
-                ${newArrivalList[product].price}$
+                ${formatter.format(newArrivalList[product].price)}
                 </p>
-                <a href="product-detail.html?id=${newArrivalList[product].id}">View</a>
+                <a href="product-detail.html?id=${
+                  newArrivalList[product].id
+                }">View</a>
             </div>
         </div>`;
     }
@@ -353,7 +363,7 @@ function render() {
                 <img src="${novelsList[product].image[0]}" alt="">
                 <h4>${novelsList[product].name}</h4>
                 <p>
-                ${novelsList[product].price}$
+                ${formatter.format(novelsList[product].price)}
                 </p>
                 <a href="product-detail.html?id=${novelsList[product].id}">View</a>
             </div>

@@ -1,3 +1,9 @@
+// format giá tiền
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 renderProduct();
 let flag = 0;
 let bookID = 0;
@@ -26,7 +32,7 @@ function renderProduct() {
             <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${products[i].image}" alt=""></div></td>
             <td>${products[i].name}</td>
             <td>${products[i].author}</td>
-            <td>${products[i].price}$</td>
+            <td>${formatter.format(products[i].price)}</td>
             <td>${products[i].stock}</td>
             <td>
                 <button onclick="hidenProduct(${products[i].id})" style="background-color: rgb(238, 65, 65); ">Delete</button>
@@ -41,7 +47,7 @@ function renderProduct() {
             <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${products[i].image}" alt=""></div></td>
             <td>${products[i].name}</td>
             <td>${products[i].author}</td>
-            <td>${products[i].price}$</td>
+            <td>${formatter.format(products[i].price)}$</td>
             <td>${products[i].stock}</td>
             <td>
               <button onclick="displayProduct(${products[i].id})" style="background-color: rgb(47, 211, 47);">Remove</button>

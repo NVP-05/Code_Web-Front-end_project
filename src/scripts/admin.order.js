@@ -1,3 +1,9 @@
+// format giá tiền
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 function renderOrder() {
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-product").style.backgroundColor = "black";
@@ -23,7 +29,9 @@ function renderOrder() {
               <td rowspan="${order[i].books.length}">${a + 1}</td>
               <td rowspan="${order[i].books.length}">${order[i].id}</td>
               <td>${order[i].books[0].name}</td>
-              <td rowspan="${order[i].books.length}">${order[i].total}$</td>
+              <td rowspan="${order[i].books.length}">${formatter.format(
+      order[i].total
+    )}</td>
             </tr>
             ${text2}
         `;
