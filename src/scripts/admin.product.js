@@ -21,6 +21,17 @@ function renderProduct() {
   document.getElementById("li-order").style.backgroundColor = "black";
 
   let products = JSON.parse(localStorage.getItem("productList"));
+
+  // for (let i = 0; i < products.length; i++) {
+  //   for (let j = i + 1; j < products.length; j++) {
+  //     if (products[i].price < products[j].price) {
+  //       let temp = products[i];
+  //       products[i] = products[j];
+  //       products[j] = temp;
+  //     }
+  //   }
+  // }
+
   let a = 0;
   text = ``;
   for (let i = 0; i < products.length; i++) {
@@ -29,14 +40,20 @@ function renderProduct() {
       text += `
           <tr>
             <td>${a}</td>
-            <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${products[i].image}" alt=""></div></td>
+            <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${
+              products[i].image
+            }" alt=""></div></td>
             <td>${products[i].name}</td>
             <td>${products[i].author}</td>
             <td>${formatter.format(products[i].price)}</td>
             <td>${products[i].stock}</td>
             <td>
-                <button onclick="hidenProduct(${products[i].id})" style="background-color: rgb(238, 65, 65); ">Delete</button>
-                <button onclick="editProduct(${products[i].id})" style="background-color: rgb(75, 152, 241); ">Edit</button>
+                <button onclick="hidenProduct(${
+                  products[i].id
+                })" style="background-color: rgb(238, 65, 65); ">Delete</button>
+                <button onclick="editProduct(${
+                  products[i].id
+                })" style="background-color: rgb(75, 152, 241); ">Edit</button>
             </td>
           </tr>
           `;
@@ -44,14 +61,20 @@ function renderProduct() {
       text += `
           <tr>
             <td>${a}</td>
-            <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${products[i].image}" alt=""></div></td>
+            <td><div><img style="height: 150px; width: 100px; object-fit: cover;" src="${
+              products[i].image
+            }" alt=""></div></td>
             <td>${products[i].name}</td>
             <td>${products[i].author}</td>
             <td>${formatter.format(products[i].price)}$</td>
             <td>${products[i].stock}</td>
             <td>
-              <button onclick="displayProduct(${products[i].id})" style="background-color: rgb(47, 211, 47);">Remove</button>
-              <button onclick="editProduct(${products[i].id})" style="background-color: rgb(75, 152, 241); ">Edit</button>
+              <button onclick="displayProduct(${
+                products[i].id
+              })" style="background-color: rgb(47, 211, 47);">Remove</button>
+              <button onclick="editProduct(${
+                products[i].id
+              })" style="background-color: rgb(75, 152, 241); ">Edit</button>
             </td>
           </tr>
           `;

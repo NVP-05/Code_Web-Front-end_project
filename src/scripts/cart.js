@@ -151,6 +151,7 @@ function pay() {
   let users = JSON.parse(localStorage.getItem("users"));
   let order = JSON.parse(localStorage.getItem("order"));
   let total = JSON.parse(localStorage.getItem("total"));
+  
 
   for (let i = 0; i < users.length; i++) {
     if (checkLogin == users[i].userID) {

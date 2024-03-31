@@ -317,6 +317,7 @@ novelsCategoryBanner.src = novelsCategory.image;
 novelsCategoryTitle.innerHTML = `${novelsCategory.name} - ${novelsCategory.description}`;
 
 function render() {
+
   for (let product in bestSellerList) {
     if (bestSellerList[product].status == true) {
       bestSellerProductContainer.innerHTML += `
