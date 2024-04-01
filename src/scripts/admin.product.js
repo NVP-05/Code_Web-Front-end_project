@@ -22,15 +22,15 @@ function renderProduct() {
 
   let products = JSON.parse(localStorage.getItem("productList"));
 
-  // for (let i = 0; i < products.length; i++) {
-  //   for (let j = i + 1; j < products.length; j++) {
-  //     if (products[i].price < products[j].price) {
-  //       let temp = products[i];
-  //       products[i] = products[j];
-  //       products[j] = temp;
-  //     }
-  //   }
-  // }
+  for (let i = 0; i < products.length; i++) {
+    for (let j = i + 1; j < products.length; j++) {
+      if (products[i].name > products[j].name) {
+        let temp = products[i];
+        products[i] = products[j];
+        products[j] = temp;
+      }
+    }
+  }
 
   let a = 0;
   text = ``;
@@ -144,24 +144,35 @@ function addBook(idBook) {
     publisherBook.value = " ";
   } else if (flag == 1) {
     console.log(bookID);
+    let flagg = 0;
     for (let i = 0; i < productList.length; i++) {
-      if (bookID == productList[i].id) {
-        productList[i].image = [
-          `${"../assets/" + directory.split(`\\`).pop()}`,
-        ];
-        productList[i].name = nameBook.value;
-        productList[i].category = +categoryBook.value;
-        productList[i].author = `${authorBook.value}`;
-        productList[i].publisher = `${publisherBook.value}`;
-        productList[i].price = +priceBook.value;
-        productList[i].stock = +stockBook.value;
-        // productList[i].status = statusNewbook;
-        productList[i].sale = saleBook.value;
-        productList[i].description = `${descriptionBook.value}`;
-        console.log(productList[i]);
-        localStorage.setItem("productList", JSON.stringify(productList));
-        renderProduct();
+      if (productList[i].name === nameBook.value) {
+        alert("Vui lòng không nhập trùng tên sách.");
+        flagg = 1;
         break;
+      }
+    }
+    if (flagg == 0) {
+      for (let i = 0; i < productList.length; i++) {
+        if (bookID == productList[i].id) {
+          productList[i].image = [
+            `${"../assets/" + directory.split(`\\`).pop()}`,
+          ];
+
+          productList[i].name = nameBook.value;
+          productList[i].category = +categoryBook.value;
+          productList[i].author = `${authorBook.value}`;
+          productList[i].publisher = `${publisherBook.value}`;
+          productList[i].price = +priceBook.value;
+          productList[i].stock = +stockBook.value;
+          // productList[i].status = statusNewbook;
+          productList[i].sale = saleBook.value;
+          productList[i].description = `${descriptionBook.value}`;
+          console.log(productList[i]);
+          localStorage.setItem("productList", JSON.stringify(productList));
+          renderProduct();
+          break;
+        }
       }
     }
   }

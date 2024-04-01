@@ -25,9 +25,9 @@ function render() {
                     <td>${users[i].Cart[j].name}</td>
                     <td>${formatter.format(users[i].Cart[j].price)}</td>
                     <td>${users[i].Cart[j].stock}</td>
-                    <td>${
-                      formatter.format(users[i].Cart[j].quantity * users[i].Cart[j].price)
-                    }</td>
+                    <td>${formatter.format(
+                      users[i].Cart[j].quantity * users[i].Cart[j].price
+                    )}</td>
                     <td><button style = "font-size: 15px;height: 20px; width: 38px; background-color: rgb(62, 207, 62);" onclick="addQuantity(${
                       users[i].Cart[j].id
                     })">+</button>
@@ -151,7 +151,6 @@ function pay() {
   let users = JSON.parse(localStorage.getItem("users"));
   let order = JSON.parse(localStorage.getItem("order"));
   let total = JSON.parse(localStorage.getItem("total"));
-  
 
   for (let i = 0; i < users.length; i++) {
     if (checkLogin == users[i].userID) {
@@ -164,6 +163,7 @@ function pay() {
       localStorage.setItem("order", JSON.stringify(order));
       users[i].Cart = [];
       localStorage.setItem("users", JSON.stringify(users));
+      alert("Thanh toán thành công.");
       render();
       showQuantityCart();
       totalAmount();

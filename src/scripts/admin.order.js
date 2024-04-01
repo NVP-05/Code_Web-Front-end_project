@@ -4,6 +4,8 @@ const formatter = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
+// Thêm số lượng sản phẩm
+
 function renderOrder() {
   document.getElementById("li-users").style.backgroundColor = "black";
   document.getElementById("li-product").style.backgroundColor = "black";

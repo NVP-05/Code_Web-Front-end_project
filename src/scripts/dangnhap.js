@@ -18,7 +18,7 @@ formLogin.addEventListener("submit", function (e) {
     emailElement.value == `admin@gmail.com` &&
     passwordElement.value == "admin"
   ) {
-    window.location.href = "../pages/admin.html";
+    window.location.href = "../pages/admin.user.html";
     return;
   } else {
     const userLocal = JSON.parse(localStorage.getItem("users")) || [];
