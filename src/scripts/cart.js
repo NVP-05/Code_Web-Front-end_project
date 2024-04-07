@@ -28,15 +28,11 @@ function render() {
                     <td>${formatter.format(
                       users[i].Cart[j].quantity * users[i].Cart[j].price
                     )}</td>
-                    <td><button style = "font-size: 15px;height: 20px; width: 38px; background-color: rgb(62, 207, 62);" onclick="addQuantity(${
-                      users[i].Cart[j].id
-                    })">+</button>
-                    <span id = "quantityCart">${
-                      users[i].Cart[j].quantity
-                    }</span>
-                    <button style = "font-size: 15px;height: 20px; width: 38px; background-color: red;" onclick="deleteQuantity(${
-                      users[i].Cart[j].id
-                    })">-</button></td>
+                    <td>
+                    <button style = "font-size: 15px;height: 20px; width: 38px; background-color: red;" onclick="deleteQuantity(${users[i].Cart[j].id})">-</button>
+                    <span id = "quantityCart">${users[i].Cart[j].quantity}</span>
+                    <button style = "font-size: 15px;height: 20px; width: 38px; background-color: rgb(62, 207, 62); " onclick="addQuantity(${users[i].Cart[j].id})">+</button>
+                    </td>
                 </tr>`;
       }
       document.getElementById("tbody").innerHTML = text;
@@ -154,6 +150,11 @@ function pay() {
 
   for (let i = 0; i < users.length; i++) {
     if (checkLogin == users[i].userID) {
+      if(users[i].Cart == 0){
+        alert("Bạn cần thêm sách vào giỏ hàng mới có thể thanh toán.");
+        break;
+      }
+
       let newOrder = {
         id: checkLogin,
         books: users[i].Cart,

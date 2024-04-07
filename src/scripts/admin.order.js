@@ -31,9 +31,9 @@ function renderOrder() {
               <td rowspan="${order[i].books.length}">${a + 1}</td>
               <td rowspan="${order[i].books.length}">${order[i].id}</td>
               <td>${order[i].books[0].name}</td>
-              <td rowspan="${order[i].books.length}">${formatter.format(
-      order[i].total
-    )}</td>
+              <td>${order[i].books[0].quantity}</td>
+              <td>${formatter.format(order[i].books[0].quantity * order[i].books[0].price)}</td>
+              <td rowspan="${order[i].books.length}">${formatter.format(order[i].total)}</td>
             </tr>
             ${text2}
         `;
@@ -44,3 +44,15 @@ function renderOrder() {
 }
 
 renderOrder();
+
+// Logout
+function logout() {
+  document.getElementById("li-category").style.backgroundColor = "black";
+  document.getElementById("li-users").style.backgroundColor = "black";
+  document.getElementById("li-product").style.backgroundColor = "black";
+  document.getElementById("li-logout").style.backgroundColor =
+    "rgb(85, 67, 208)";
+  setTimeout(() => {
+    window.location.href = "../pages/login.html";
+  }, 500);
+}

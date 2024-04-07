@@ -15,17 +15,30 @@ function renderCategory() {
   let a = 0;
   for (let i = 0; i < categoryList.length; i++) {
     a++;
-    text += `
+    if(categoryList[i].status == true){
+      text += `
               <tr>
                 <td>${a}</td>
                 <td>${categoryList[i].id}</td>
                 <td>${categoryList[i].name}</td>
                 <td>
                     <button onclick="hidenCategory(${categoryList[i].id})" style="background-color: rgb(238, 65, 65); ">Delete</button>
+                </td>
+              </tr>
+              `;
+    }else{
+      text += `
+              <tr>
+                <td>${a}</td>
+                <td>${categoryList[i].id}</td>
+                <td>${categoryList[i].name}</td>
+                <td>
                     <button onclick="displayCategory(${categoryList[i].id})" style="background-color: rgb(47, 211, 47);">Remove</button>
                 </td>
               </tr>
               `;
+    }
+    
     document.getElementById("renderCategory").innerHTML = text;
   }
 }
@@ -75,26 +88,38 @@ function btnAddCategory() {
 }
 
 // hiden và display Categorry
-function hidenCategory(idBook) {
-  let productList = JSON.parse(localStorage.getItem("productList"));
-  for (let i = 0; i < productList.length; i++) {
-    if (productList[i].id == idBook) {
-      productList[i].status = false;
-      localStorage.setItem("productList", JSON.stringify(productList));
+function hidenCategory(idCategory) {
+  let categoryList = JSON.parse(localStorage.getItem("categoryList"));
+  for (let i = 0; i < categoryList.length; i++) {
+    if (categoryList[i].id == idCategory) {
+      categoryList[i].status = false;
+      localStorage.setItem("categoryList", JSON.stringify(categoryList));
       renderCategory();
       break;
     }
   }
 }
 
-function displayCategory(idBook) {
-  let productList = JSON.parse(localStorage.getItem("productList"));
-  for (let i = 0; i < productList.length; i++) {
-    if (productList[i].id == idBook) {
-      productList[i].status = true;
-      localStorage.setItem("productList", JSON.stringify(productList));
+function displayCategory(idCategory) {
+  let categoryList = JSON.parse(localStorage.getItem("categoryList"));
+  for (let i = 0; i < categoryList.length; i++) {
+    if (categoryList[i].id == idCategory) {
+      categoryList[i].status = true;
+      localStorage.setItem("categoryList", JSON.stringify(categoryList));
       renderCategory();
       break;
     }
   }
+}
+
+// Logout
+function logout() {
+  document.getElementById("li-category").style.backgroundColor = "black";
+  document.getElementById("li-users").style.backgroundColor = "black";
+  document.getElementById("li-product").style.backgroundColor = "black";
+  document.getElementById("li-logout").style.backgroundColor =
+    "rgb(85, 67, 208)";
+  setTimeout(() => {
+    window.location.href = "../pages/login.html";
+  }, 500);
 }
